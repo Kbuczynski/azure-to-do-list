@@ -21,7 +21,8 @@ module.exports = async function (context, req) {
             .replace(createdItem);
         response.body = updatedItem
     } catch (e) {
-        response.status = e?.code || 400
+        response.status = 400
+        response.body = e.message
         context.log(e)
     }    
 
