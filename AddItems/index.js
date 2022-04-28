@@ -16,7 +16,7 @@ module.exports = async function (context, req) {
         const { resource: createdItem } = await container.items.create(newItem);
         response.body = createdItem
     } catch (e) {
-        response.status = e?.code || 400
+        response.status = 400
         response.body = e.message
         context.log(e)
     }    

@@ -14,7 +14,8 @@ module.exports = async function (context, req) {
         const { resource: result } = await container.item(id.toString(), category).delete();
         response.body = result
     } catch (e) {
-        response.status = e?.code || 400
+        response.status = 400
+        response.body = e.message
         context.log(e)
     }    
 
